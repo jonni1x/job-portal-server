@@ -13,6 +13,14 @@ class AddressController extends Controller
     public function index()
     {
         //
+        $data = Address::orderBy("created_at", "DESC")->get();
+
+        // return response()->json([
+        //     "message" => "Sup"
+        // ]);
+        return response()->json([
+            "data" => $data
+        ]);
     }
 
     /**
@@ -23,29 +31,6 @@ class AddressController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Address $address)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Address $address)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -58,7 +43,7 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Address $address)
+    public function delete(Address $address)
     {
         //
     }

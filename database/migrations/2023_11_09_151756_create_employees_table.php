@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +14,17 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId("user_id")->constrained()->onDelete('cascade');
+            $table->foreignId("address_id")->constrained()->onDelete('cascade');
+            $table->foreignId("category_id")->constrained()->onDelete('cascade');
+            $table->string("salary");
+            $table->json("skills");
+            $table->json("professions");
+            $table->date("birth");
+            $table->string("photo");
+            $table->string("gender");
+
+           $table->timestamps();
         });
     }
 
